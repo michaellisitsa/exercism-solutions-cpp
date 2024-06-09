@@ -47,5 +47,8 @@ CMakeUserPresets.json
 # A top-level copy of the test directory has been created
 */test/
 
+# Specific dependencies required
+dependencies/
+
 # VS code
 .DS_Store

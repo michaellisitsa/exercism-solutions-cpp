@@ -3,6 +3,26 @@
 Welcome to Gigasecond on Exercism's C++ Track.
 If you need help running the tests or submitting your code, check out `HELP.md`.
 
+## Adding Boost dependency
+
+1. Download boost from link from https://www.boost.org/users/history/version_1_85_0.html and unzip
+
+```bash
+cd path/to/your/repo/gigasecond
+mkdir dependencies
+cd dependencies
+curl -LO https://archives.boost.io/release/1.85.0/source/boost_1_85_0.tar.bz2 && tar --bzip2 -xf boost_1_85_0.tar.bz2
+```
+
+2. Compile and build the datetime module (necessary for to_string and from_string methods). Using the Exercism.org v1.58 had some compile errors on Mac Arm architecture.
+
+```bash
+cd dependencies/boost_1_85_0; ./bootstrap.sh --prefix=path/to/your/repo/gigasecond/dependencies/boost_1_85_0 --with-libraries=date_time
+./b2
+```
+
+3. Build your makefile as per standard Exercism instructions.
+
 ## Introduction
 
 The way we measure time is kind of messy.
@@ -18,7 +38,7 @@ Then we can use metric system prefixes for writing large numbers of seconds in m
 - Perhaps you and your family would travel to somewhere exotic for two megaseconds (that's two million seconds).
 - And if you and your spouse were married for _a thousand million_ seconds, you would celebrate your one gigasecond anniversary.
 
-~~~~exercism/note
+```exercism/note
 If we ever colonize Mars or some other planet, measuring time is going to get even messier.
 If someone says "year" do they mean a year on Earth or a year on Mars?
 
@@ -26,7 +46,7 @@ The idea for this exercise came from the science fiction novel ["A Deepness in t
 In it the author uses the metric system as the basis for time measurements.
 
 [vinge-novel]: https://www.tor.com/2017/08/03/science-fiction-with-something-for-everyone-a-deepness-in-the-sky-by-vernor-vinge/
-~~~~
+```
 
 ## Instructions
 

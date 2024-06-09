@@ -10,7 +10,9 @@ project(${exercise} CXX)
 # Locate Boost date_time library
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost 1.58 REQUIRED COMPONENTS date_time)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dependencies/boost_1_85_0)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/dependencies/boost_1_85_0/stage/lib)
+find_package(Boost 1.85 REQUIRED COMPONENTS date_time)
 
 # Get a source filename from the exercise name by replacing -'s with _'s
 string(REPLACE "-" "_" file ${exercise})
